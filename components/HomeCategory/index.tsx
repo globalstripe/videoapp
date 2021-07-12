@@ -24,6 +24,8 @@ const HomeCategory = (props: HomeCategoryProps) => {
       <Text style={styles.title}>{category.title}</Text>
       <FlatList
       horizontal
+      showsVerticalScrollIndicator={false}
+      showsHorizontalScrollIndicator={false}
       data={category.movies} 
       renderItem={({item}) => (
         <Image style={styles.image} source={{ uri: item.poster }}/>

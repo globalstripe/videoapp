@@ -13,11 +13,12 @@ const HomeScreen = () => {
   return (
     <View style={styles.container}>
 
-      <FlatList style={styles.flatlist}
+      <FlatList 
+        style={styles.flatlist}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
         data={categories.items}
-        renderItem={({item}) => 
-           <HomeCategory category={item}/>
-        }
+        renderItem={({item}) => <HomeCategory category={item}/> }
       />
 
     </View>

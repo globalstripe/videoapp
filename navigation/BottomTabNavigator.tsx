@@ -86,10 +86,10 @@ function TabOneNavigator() {
         component={HomeScreen}
         options={{ 
           headerTitle: 'HomeScreen', 
-          headerTintColor: 'red',
+          headerTintColor: 'white',
           headerStyle: {
             backgroundColor: 'black',
-            height: 100,
+            height: 70,
             elevation: 0, // remove shadow on Android
             shadowOpacity: 0, // remove shadow on iOS
             borderBottomWidth: 0 // Just in case.
