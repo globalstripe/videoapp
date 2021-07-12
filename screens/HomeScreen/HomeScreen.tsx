@@ -13,7 +13,7 @@ const HomeScreen = () => {
   return (
     <View style={styles.container}>
 
-      <FlatList
+      <FlatList style={styles.flatlist}
         data={categories.items}
         renderItem={({item}) => 
            <HomeCategory category={item}/>

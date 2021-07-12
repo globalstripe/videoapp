@@ -6,6 +6,11 @@ const styles = StyleSheet.create({
       flex: 1,
       padding: 20,
       backgroundColor: 'black',
+      color: 'black',
+    },
+    flatlist: {
+      backgroundColor: 'black',
+      color: 'black',
     },
     title: {
       fontSize: 20,
@@ -16,6 +21,8 @@ const styles = StyleSheet.create({
       marginVertical: 30,
       height: 1,
       width: '80%',
+      color: 'black',
+      backgroundColor: 'black',
     },
 
     image: {
@@ -23,6 +30,10 @@ const styles = StyleSheet.create({
         height: 170,
         resizeMode: 'cover',
         borderRadius: 5,
+        color: 'black',
+        backgroundColor: 'black',
+        borderTopWidth: 0,
+        elevation: 0
     }
   });
 
