@@ -9,12 +9,14 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 
+import {Button} from 'react-native';
+
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import HomeScreen from '../screens/HomeScreen/';
 
 import TabTwoScreen from '../screens/TabTwoScreen';
-import { BottomTabParamList, HomeParamList, TabTwoParamList } from '../types';
+import { BottomTabParamList, TabOneParamList, HomeParamList, TabTwoParamList } from '../types';
 
 // import { AntDesign, MaterialIcons, Ionicons } from '@expo/vector-icons';
 
@@ -87,9 +89,40 @@ function TabOneNavigator() {
         options={{ 
           headerTitle: 'HomeScreen', 
           headerTintColor: 'white',
+          headerLeftContainerStyle: {
+            paddingTop: 0,
+            paddingBottom: 2,
+            paddingLeft: 21,
+            paddingRight: 0,
+           },
+           headerRightContainerStyle: {
+            paddingTop: 3,
+            paddingBottom: 1,
+            paddingLeft: 1,
+            paddingRight: 26,
+           },
+
+          headerLeft: () => (
+            <Ionicons 
+                name="menu-outline" 
+                size={30}  
+                color="grey" 
+                onPress={() => alert('What do you want this click to do ?')}
+            />
+            ),
+
+            headerRight: () => (
+              <Ionicons 
+                  name="settings-outline" 
+                  size={24}  
+                  color="grey" 
+                  onPress={() => alert('Clicked the Right One')}
+              />
+              ),
+
           headerStyle: {
             backgroundColor: 'black',
-            height: 70,
+            height: 75,
             elevation: 0, // remove shadow on Android
             shadowOpacity: 0, // remove shadow on iOS
             borderBottomWidth: 0 // Just in case.
