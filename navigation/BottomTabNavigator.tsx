@@ -28,8 +28,8 @@ export default function BottomTabNavigator() {
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint,
         style: {
           backgroundColor: '#000000',
-          borderTopWidth: 0,
-          elevation: 0
+          borderTopWidth: 0,  // Gets rid of the white border
+          elevation: 0 // Gets rid of the white border
       },
       }}>
       <BottomTab.Screen
@@ -78,7 +78,9 @@ const TabOneStack = createStackNavigator<TabOneParamList>();
 
 function TabOneNavigator() {
   return (
-    <TabOneStack.Navigator>
+    <TabOneStack.Navigator
+    
+    >
       <TabOneStack.Screen
         name="HomeScreen"
         component={HomeScreen}
@@ -87,6 +89,10 @@ function TabOneNavigator() {
           headerTintColor: 'red',
           headerStyle: {
             backgroundColor: 'black',
+            height: 100,
+            elevation: 0, // remove shadow on Android
+            shadowOpacity: 0, // remove shadow on iOS
+            borderBottomWidth: 0 // Just in case.
           },
          }}
       />
