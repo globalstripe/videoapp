@@ -1,6 +1,10 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+    container: {
+        width: '100%',
+        backgroundColor: 'black',
+    },
     image: {
         width: '100%',
         aspectRatio: 16/9,
@@ -8,7 +12,10 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 24,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: 'white',
+        paddingTop: 10,
+        paddingLeft: 5,
     },
     match: {
         color: '#59d467',
@@ -19,6 +26,15 @@ const styles = StyleSheet.create({
         color: '#757575',
         marginRight: 5,
     },
+    plot: {
+        color: '#757575',
+        marginVertical: 10,
+    },
+    cast: {
+        color: '#757575',
+        marginVertical: 10,
+    },
+
     ageContainer: {
         backgroundColor: '#e6e229',
         justifyContent: 'center',
@@ -28,7 +44,7 @@ const styles = StyleSheet.create({
         marginRight: 5,
     },
     age: {
-        color: 'black',
+        color: 'white',
         fontWeight: 'bold'
     },
 
