@@ -5,10 +5,13 @@ import { Text, View } from '../../components/Themed';
 import styles from './styles';
 import { Episode } from '../../types';
 
+type Props = {
+    onPress(): void
+  }
 
 interface EpisodeItemProps {
     episode: Episode;
-    onPress: (eppisode: Episode) => {}
+    onPress: (episode: Episode) => {}
 }
 
 

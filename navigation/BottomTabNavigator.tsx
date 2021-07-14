@@ -8,6 +8,7 @@ import { AntDesign, MaterialIcons, Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 import { Button } from 'react-native';
 
@@ -16,13 +17,15 @@ import useColorScheme from '../hooks/useColorScheme';
 import HomeScreen from '../screens/HomeScreen/';
 import styles from '../screens/HomeScreen/styles';
 import MovieDetailsScreen from '../screens/MovieDetailsScreen';
+import SettingsScreen from '../screens/SettingsScreen';
 
 import TabTwoScreen from '../screens/TabTwoScreen';
-import { BottomTabParamList, TabOneParamList, HomeParamList, TabTwoParamList } from '../types';
+import { BottomTabParamList, TabOneParamList, HomeParamList, TabTwoParamList,SettingsParamList } from '../types';
 
 // import { AntDesign, MaterialIcons, Ionicons } from '@expo/vector-icons';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
+
 export default function BottomTabNavigator() {
   const colorScheme = useColorScheme();
 
@@ -85,18 +88,25 @@ function TabBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name']
 
 const HomeStack = createStackNavigator<HomeParamList>();
 
-
 function TabOneNavigator() {
+
+  const navigation = useNavigation();
+
+  const onSettingsPress = () => {
+      navigation.navigate('SettingsScreen')
+  }
+
+  const onHamBurgerPress = () => {
+       navigation.navigate('SettingsScreen')
+  }
+
+  const onBackPress = () => {
+    navigation.navigate('HomeScreen')
+}
+
+
   return (
     <HomeStack.Navigator>
-
-    <HomeStack.Screen
-        name="MovieDetailsScreen"
-        component={MovieDetailsScreen}
-        options={{ 
-          headerShown: false,
-        }}
-    />
 
       <HomeStack.Screen
         name="HomeScreen"
@@ -123,7 +133,7 @@ function TabOneNavigator() {
               name="menu-outline"
               size={30}
               color="grey"
-              onPress={() => alert('What do you want this click to do ?')}
+              onPress={() => onHamBurgerPress()}
             />
           ),
 
@@ -132,7 +142,7 @@ function TabOneNavigator() {
               name="settings-outline"
               size={24}
               color="grey"
-              onPress={() => alert('Clicked the Right One')}
+              onPress={() => onSettingsPress()}
             />
           ),
 
@@ -145,6 +155,63 @@ function TabOneNavigator() {
           },
         }}
       />
+
+      <HomeStack.Screen
+        name="MovieDetailsScreen"
+        component={MovieDetailsScreen}
+        options={{ 
+          headerShown: false,
+        }}
+    />
+
+
+        <HomeStack.Screen
+        name="SettingsScreen"
+        component={SettingsScreen}
+        
+        options={{
+          headerTitle: 'Settings',
+          headerTintColor: 'white',
+          headerLeftContainerStyle: {
+            paddingTop: 0,
+            paddingBottom: 2,
+            paddingLeft: 21,
+            paddingRight: 0,
+          },
+          headerRightContainerStyle: {
+            paddingTop: 0,
+            paddingBottom: 2,
+            paddingLeft: 1,
+            paddingRight: 26,
+          },
+
+          headerLeft: () => (
+            <Ionicons
+              name="ios-arrow-back"
+              size={30}
+              color="grey"
+              onPress={() => onBackPress()}
+            />
+          ),
+
+          headerRight: () => (
+            <Ionicons
+              name="ios-arrow-forward"
+              size={30}
+              color="grey"
+            />
+          ),
+
+          headerStyle: {
+            backgroundColor: 'black',
+            height: 75,
+            elevation: 0, // remove shadow on Android
+            shadowOpacity: 0, // remove shadow on iOS
+            borderBottomWidth: 0 // Just in case.
+          },
+        }}
+    />
+
     </HomeStack.Navigator>
   );
 }
@@ -162,3 +229,5 @@ function TabTwoNavigator() {
     </TabTwoStack.Navigator>
   );
 }
+
+

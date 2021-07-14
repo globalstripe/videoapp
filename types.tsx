@@ -45,6 +45,10 @@ export type TabTwoParamList = {
   TabTwoScreen: undefined;
 };
 
+export type SettingsParamList = {
+  SettingsScreen: undefined;
+};
+
 export type Episode = {
   id: string,
   title: string,
@@ -53,3 +57,4 @@ export type Episode = {
   plot: string,
   video: string,
 }
+

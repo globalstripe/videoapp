@@ -10,6 +10,7 @@ import HomeCategory from '../../components/HomeCategory'
 
 
 const HomeScreen = () => {
+
   return (
     <View style={styles.container}>
 

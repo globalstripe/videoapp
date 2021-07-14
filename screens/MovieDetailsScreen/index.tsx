@@ -22,6 +22,7 @@ const MoviewDetailsScreen = () => {
     const [selectedLanguage, setSelectedLanguage] = useState();
     const seasonNames = movie.seasons.items.map(season => season.name);
 
+
     // console.log(firstEpisode)
     return (
 
