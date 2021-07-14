@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "Netflix",
-    "slug": "Netflix",
+    "name": "OSTVideo",
+    "slug": "OSTVideo",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "icon": "./assets/images/clapperboard-50.png",
+    "scheme": "ostvideodemo",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./assets/images/ios-splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#000000"
     },
