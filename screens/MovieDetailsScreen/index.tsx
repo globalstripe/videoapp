@@ -5,6 +5,8 @@ import { Image, Pressable, FlatList } from 'react-native';
 import { MaterialIcons, Entypo, AntDesign, Ionicons, Feather, FontAwesome } from '@expo/vector-icons';
 import { Picker } from '@react-native-picker/picker';
 
+import VideoPlayer from '../../components/VideoPlayer';
+
 //import { Movie, Season, Episode } from '../../src/models';
 
 import movie from '../../assets/data/movie';
@@ -16,17 +18,19 @@ const firstEpisode = movie.seasons.items[0].episodes.items[0];
 
 const MoviewDetailsScreen = () => {
 
-    const [currentEpisode, setCurrentEpisode] = useState(undefined);
-
+    const [currentEpisode, setCurrentEpisode] = useState(firstSeason.episodes.items[0]);
     const [selectedLanguage, setSelectedLanguage] = useState();
-    
     const seasonNames = movie.seasons.items.map(season => season.name);
 
     // console.log(firstEpisode)
     return (
 
         <View style={{ backgroundColor: 'black' }}>
-            <Image style={styles.image} source={{ uri: firstEpisode.poster }} />
+            
+            {/*  Replaced Image with the Video Player + Poster */}
+            {/* <Image style={styles.image} source={{ uri: firstEpisode.poster }} /> */}
+            
+            <VideoPlayer episode={currentEpisode}/>
 
             <FlatList
                 data={firstSeason.episodes.items}
@@ -90,7 +94,7 @@ const MoviewDetailsScreen = () => {
                             selectedValue={selectedLanguage}                          
                             onValueChange={(itemValue, itemIndex) => {
                                  setSelectedLanguage(itemValue) 
-                                 alert('You picked:' + itemValue + ' Index: ' + itemIndex)
+                                //  alert('You picked:' + itemValue + ' Index: ' + itemIndex)
                                 }
                             }
 
