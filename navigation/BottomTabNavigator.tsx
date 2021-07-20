@@ -18,6 +18,7 @@ import HomeScreen from '../screens/HomeScreen/';
 import styles from '../screens/HomeScreen/styles';
 import MovieDetailsScreen from '../screens/MovieDetailsScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import ListItemScreen from '../screens/ListItem';
 
 import TabTwoScreen from '../screens/TabTwoScreen';
 import { BottomTabParamList, TabOneParamList, HomeParamList, TabTwoParamList,SettingsParamList } from '../types';
@@ -66,7 +67,7 @@ export default function BottomTabNavigator() {
       />
 
       <BottomTab.Screen
-        name="Downloads"
+        name="Download"
         component={TabTwoNavigator}
         options={{
           tabBarIcon: ({ color }) => <AntDesign name="download" size={24} color={color} />,
@@ -97,7 +98,7 @@ function TabOneNavigator() {
   }
 
   const onHamBurgerPress = () => {
-       navigation.navigate('SettingsScreen')
+       navigation.navigate('ListItemScreen')
   }
 
   const onBackPress = () => {
@@ -212,6 +213,53 @@ function TabOneNavigator() {
         }}
     />
 
+<HomeStack.Screen
+        name="ListItemScreen"
+        component={ListItemScreen}
+        
+        options={{
+          headerTitle: 'ItemScreen',
+          headerTintColor: 'white',
+          headerLeftContainerStyle: {
+            paddingTop: 0,
+            paddingBottom: 2,
+            paddingLeft: 21,
+            paddingRight: 0,
+          },
+          headerRightContainerStyle: {
+            paddingTop: 0,
+            paddingBottom: 2,
+            paddingLeft: 1,
+            paddingRight: 26,
+          },
+
+          headerLeft: () => (
+            <Ionicons
+              name="ios-arrow-back"
+              size={30}
+              color="grey"
+              onPress={() => onBackPress()}
+            />
+          ),
+
+          headerRight: () => (
+            <Ionicons
+              name="ios-arrow-forward"
+              size={30}
+              color="grey"
+            />
+          ),
+
+          headerStyle: {
+            backgroundColor: 'black',
+            height: 75,
+            elevation: 0, // remove shadow on Android
+            shadowOpacity: 0, // remove shadow on iOS
+            borderBottomWidth: 0 // Just in case.
+          },
+        }}
+    />
+
     </HomeStack.Navigator>
   );
 }
@@ -222,10 +270,17 @@ function TabTwoNavigator() {
   return (
     <TabTwoStack.Navigator>
       <TabTwoStack.Screen
-        name="TabTwoScreen"
+        name="TabTwoScreen1"
         component={TabTwoScreen}
         options={{ headerTitle: 'Tab Two Title' }}
       />
+
+      <TabTwoStack.Screen
+        name="TabTwoScreen2"
+        component={ListItemScreen}
+        options={{ headerTitle: 'ListItemScreen' }}
+      />
+
     </TabTwoStack.Navigator>
   );
 }
