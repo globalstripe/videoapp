@@ -41,6 +41,7 @@ export type HomeParamList = {
   ListItemScreen: undefined;
   SettingsScreen: undefined;
   MovieDetailsScreen: undefined;
+  MoreSettings: undefined;
 };
 
 export type TabTwoParamList = {

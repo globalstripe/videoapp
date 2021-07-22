@@ -18,9 +18,11 @@ import HomeScreen from '../screens/HomeScreen/';
 import styles from '../screens/HomeScreen/styles';
 import MovieDetailsScreen from '../screens/MovieDetailsScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import MoreSettings from '../screens/MoreSettings';
 import ListItemScreen from '../screens/ListItem';
 
 import TabTwoScreen from '../screens/TabTwoScreen';
+import TabTwoScreen2 from '../screens/TabTwoScreen2';
 import TabThreeScreen from '../screens/TabThreeScreen';
 import TabFourScreen from '../screens/TabFourScreen';
 
@@ -121,6 +123,9 @@ function TabOneNavigator() {
     navigation.navigate('HomeScreen')
 }
 
+const onMorePress = () => {
+  navigation.navigate('MoreSettings')
+}
 
 
   return (
@@ -217,6 +222,46 @@ function TabOneNavigator() {
               name="ios-arrow-forward"
               size={30}
               color="grey"
+              onPress={() => onMorePress()}
+            />
+          ),
+
+          headerStyle: {
+            backgroundColor: 'black',
+            height: 75,
+            elevation: 0, // remove shadow on Android
+            shadowOpacity: 0, // remove shadow on iOS
+            borderBottomWidth: 0 // Just in case.
+          },
+        }}
+    />
+
+<HomeStack.Screen
+        name="MoreSettings"
+        component={MoreSettings}
+        
+        options={{
+          headerTitle: 'MoreSettings',
+          headerTintColor: 'white',
+          headerLeftContainerStyle: {
+            paddingTop: 0,
+            paddingBottom: 2,
+            paddingLeft: 21,
+            paddingRight: 0,
+          },
+          headerRightContainerStyle: {
+            paddingTop: 0,
+            paddingBottom: 2,
+            paddingLeft: 1,
+            paddingRight: 26,
+          },
+
+          headerLeft: () => (
+            <Ionicons
+              name="ios-arrow-back"
+              size={30}
+              color="grey"
+              onPress={() => onSettingsPress()}
             />
           ),
 
@@ -291,6 +336,10 @@ function TabTwoNavigator() {
     navigation.navigate('HomeScreen')
 }
 
+const onScreen2Press = () => {
+  navigation.navigate('TabTwoScreen2')
+}
+
   return (
     <TabTwoStack.Navigator>
       <TabTwoStack.Screen
@@ -321,6 +370,15 @@ function TabTwoNavigator() {
             />
           ),
 
+          headerRight: () => (
+            <Ionicons
+              name="ios-arrow-forward"
+              size={24}
+              color="grey"
+              onPress={() => onScreen2Press()}
+            />
+          ),
+
           headerStyle: {
             backgroundColor: 'black',
             height: 75,
@@ -332,9 +390,9 @@ function TabTwoNavigator() {
       />
 
       <TabTwoStack.Screen
-        name="ListItemScreen"  
-        component={ListItemScreen}
-        options={{ headerTitle: 'ListItemScreen' }}
+        name="TabTwoScreen2"  
+        component={TabTwoScreen2}
+        options={{ headerTitle: 'TabTwoScreen2' }}
       />
 
     </TabTwoStack.Navigator>
