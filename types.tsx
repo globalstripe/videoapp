@@ -38,19 +38,28 @@ export type BottomTabParamList = {
 
 export type HomeParamList = {
   HomeScreen: undefined;
+  ListItemScreen: undefined;
+  SettingsScreen: undefined;
   MovieDetailsScreen: undefined;
 };
 
 export type TabTwoParamList = {
   TabTwoScreen: undefined;
+  TabTwoScreen1: undefined;
+  TabTwoScreen2: undefined;
+  SettingsScreen: undefined;
 };
 
 export type TabThreeParamList = {
-  TabTwoScreen: undefined;
+  TabThreeScreen: undefined;
+  TabThreeScreen1: undefined;
+  TabThreeScreen2: undefined;
 };
 
 export type TabFourParamList = {
-  TabTwoScreen: undefined;
+  TabFourScreen: undefined;
+  TabFourScreen1: undefined;
+  TabFourScreen2: undefined;
 };
 
 export type SettingsParamList = {

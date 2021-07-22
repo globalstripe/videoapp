@@ -24,7 +24,7 @@ import TabTwoScreen from '../screens/TabTwoScreen';
 import TabThreeScreen from '../screens/TabThreeScreen';
 import TabFourScreen from '../screens/TabFourScreen';
 
-import { BottomTabParamList, TabOneParamList, HomeParamList, TabTwoParamList,SettingsParamList } from '../types';
+import { BottomTabParamList, HomeParamList, TabOneParamList,TabTwoParamList,TabThreeParamList,TabFourParamList, SettingsParamList } from '../types';
 
 // import { AntDesign, MaterialIcons, Ionicons } from '@expo/vector-icons';
 
@@ -43,7 +43,8 @@ export default function BottomTabNavigator() {
           borderTopWidth: 0,  // Gets rid of the white border
           elevation: 0 // Gets rid of the white border
         },
-      }}>
+      }}
+    >
 
       <BottomTab.Screen
         name="Home"
@@ -70,7 +71,7 @@ export default function BottomTabNavigator() {
       />
 
       <BottomTab.Screen
-        name="Download"
+        name="Downloads"
         component={TabFourNavigator}
         options={{
           tabBarIcon: ({ color }) => <AntDesign name="download" size={24} color={color} />,
@@ -93,6 +94,18 @@ function TabBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name']
 const HomeStack = createStackNavigator<HomeParamList>();
 
 function TabOneNavigator() {
+
+  const transitionConfig = {
+    animation: 'spring',
+    config: {
+      stiffness: 1000,
+      damping: 500,
+      mass: 3,
+      overshootClamping: true,
+      restDisplacementThreshold: 0.01,
+      restSpeedThreshold: 0.01,
+    },
+  };
 
   const navigation = useNavigation();
 
@@ -271,16 +284,55 @@ function TabOneNavigator() {
 const TabTwoStack = createStackNavigator<TabTwoParamList>();
 
 function TabTwoNavigator() {
+
+  const navigation = useNavigation();
+
+  const onBackPress = () => {
+    navigation.navigate('HomeScreen')
+}
+
   return (
     <TabTwoStack.Navigator>
       <TabTwoStack.Screen
-        name="TabTwoScreen1"
+        name="TabTwoScreen"
         component={TabTwoScreen}
-        options={{ headerTitle: 'Tab Two Title' }}
+        options={{
+          headerTitle: 'Tab Two Header',
+          headerTintColor: 'white',
+          headerLeftContainerStyle: {
+            paddingTop: 0,
+            paddingBottom: 2,
+            paddingLeft: 21,
+            paddingRight: 0,
+          },
+          headerRightContainerStyle: {
+            paddingTop: 0,
+            paddingBottom: 2,
+            paddingLeft: 1,
+            paddingRight: 26,
+          },
+
+          headerLeft: () => (
+            <Ionicons
+              name="ios-arrow-back"
+              size={30}
+              color="grey"
+              onPress={() => onBackPress()}
+            />
+          ),
+
+          headerStyle: {
+            backgroundColor: 'black',
+            height: 75,
+            elevation: 0, // remove shadow on Android
+            shadowOpacity: 0, // remove shadow on iOS
+            borderBottomWidth: 0 // Just in case.
+          },
+        }}
       />
 
       <TabTwoStack.Screen
-        name="TabTwoScreen2"
+        name="TabTwoScreen"
         component={ListItemScreen}
         options={{ headerTitle: 'ListItemScreen' }}
       />
@@ -294,12 +346,52 @@ function TabTwoNavigator() {
 const TabThreeStack = createStackNavigator<TabThreeParamList>();
 
 function TabThreeNavigator() {
+
+  const navigation = useNavigation();
+
+  const onBackPress = () => {
+    navigation.navigate('HomeScreen')
+}
+
   return (
     <TabThreeStack.Navigator>
       <TabThreeStack.Screen
-        name="TabThreeScreen1"
+        name="TabThreeScreen"
         component={TabThreeScreen}
-        options={{ headerTitle: 'Tab Three Screen 1' }}
+        options={{
+          headerTitle: 'Screen Three Header',
+          headerTintColor: 'white',
+          headerLeftContainerStyle: {
+            paddingTop: 0,
+            paddingBottom: 2,
+            paddingLeft: 21,
+            paddingRight: 0,
+          },
+          headerRightContainerStyle: {
+            paddingTop: 0,
+            paddingBottom: 2,
+            paddingLeft: 1,
+            paddingRight: 26,
+          },
+
+          headerLeft: () => (
+            <Ionicons
+              name="ios-arrow-back"
+              size={30}
+              color="grey"
+              onPress={() => onBackPress()}
+            />
+          ),
+
+          headerStyle: {
+            backgroundColor: 'black',
+            height: 75,
+            elevation: 0, // remove shadow on Android
+            shadowOpacity: 0, // remove shadow on iOS
+            borderBottomWidth: 0 // Just in case.
+          },
+        }}
+
       />
 
       <TabThreeStack.Screen
@@ -315,12 +407,52 @@ function TabThreeNavigator() {
 const TabFourStack = createStackNavigator<TabFourParamList>();
 
 function TabFourNavigator() {
+
+  const navigation = useNavigation();
+
+  const onBackPress = () => {
+    navigation.navigate('HomeScreen')
+}
+
   return (
     <TabFourStack.Navigator>
       <TabFourStack.Screen
         name="TabFourScreen1"
         component={TabFourScreen}
-        options={{ headerTitle: 'Tab Four Screen 1' }}
+        options={{
+          headerTitle: 'Screen Four Header',
+          headerTintColor: 'white',
+          headerLeftContainerStyle: {
+            paddingTop: 0,
+            paddingBottom: 2,
+            paddingLeft: 21,
+            paddingRight: 0,
+          },
+          headerRightContainerStyle: {
+            paddingTop: 0,
+            paddingBottom: 2,
+            paddingLeft: 1,
+            paddingRight: 26,
+          },
+
+          headerLeft: () => (
+            <Ionicons
+              name="ios-arrow-back"
+              size={30}
+              color="grey"
+              onPress={() => onBackPress()}
+            />
+          ),
+
+          headerStyle: {
+            backgroundColor: 'black',
+            height: 75,
+            elevation: 0, // remove shadow on Android
+            shadowOpacity: 0, // remove shadow on iOS
+            borderBottomWidth: 0 // Just in case.
+          },
+        }}
+
       />
 
       <TabFourStack.Screen
