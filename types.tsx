@@ -45,6 +45,14 @@ export type TabTwoParamList = {
   TabTwoScreen: undefined;
 };
 
+export type TabThreeParamList = {
+  TabTwoScreen: undefined;
+};
+
+export type TabFourParamList = {
+  TabTwoScreen: undefined;
+};
+
 export type SettingsParamList = {
   SettingsScreen: undefined;
 };

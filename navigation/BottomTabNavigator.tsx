@@ -21,6 +21,9 @@ import SettingsScreen from '../screens/SettingsScreen';
 import ListItemScreen from '../screens/ListItem';
 
 import TabTwoScreen from '../screens/TabTwoScreen';
+import TabThreeScreen from '../screens/TabThreeScreen';
+import TabFourScreen from '../screens/TabFourScreen';
+
 import { BottomTabParamList, TabOneParamList, HomeParamList, TabTwoParamList,SettingsParamList } from '../types';
 
 // import { AntDesign, MaterialIcons, Ionicons } from '@expo/vector-icons';
@@ -60,7 +63,7 @@ export default function BottomTabNavigator() {
 
       <BottomTab.Screen
         name="Search"
-        component={TabTwoNavigator}
+        component={TabThreeNavigator}
         options={{
           tabBarIcon: ({ color }) => <Ionicons name="search" size={24} color={color} />,
         }}
@@ -68,7 +71,7 @@ export default function BottomTabNavigator() {
 
       <BottomTab.Screen
         name="Download"
-        component={TabTwoNavigator}
+        component={TabFourNavigator}
         options={{
           tabBarIcon: ({ color }) => <AntDesign name="download" size={24} color={color} />,
         }}
@@ -104,6 +107,7 @@ function TabOneNavigator() {
   const onBackPress = () => {
     navigation.navigate('HomeScreen')
 }
+
 
 
   return (
@@ -285,4 +289,47 @@ function TabTwoNavigator() {
   );
 }
 
+
+
+const TabThreeStack = createStackNavigator<TabThreeParamList>();
+
+function TabThreeNavigator() {
+  return (
+    <TabThreeStack.Navigator>
+      <TabThreeStack.Screen
+        name="TabThreeScreen1"
+        component={TabThreeScreen}
+        options={{ headerTitle: 'Tab Three Screen 1' }}
+      />
+
+      <TabThreeStack.Screen
+        name="TabThreeScreen2"
+        component={ListItemScreen}
+        options={{ headerTitle: 'Tab Three Screen 2' }}
+      />
+
+    </TabThreeStack.Navigator>
+  );
+}
+
+const TabFourStack = createStackNavigator<TabFourParamList>();
+
+function TabFourNavigator() {
+  return (
+    <TabFourStack.Navigator>
+      <TabFourStack.Screen
+        name="TabFourScreen1"
+        component={TabFourScreen}
+        options={{ headerTitle: 'Tab Four Screen 1' }}
+      />
+
+      <TabFourStack.Screen
+        name="TabFourScreen2"
+        component={ListItemScreen}
+        options={{ headerTitle: 'Tab Four Screen 2' }}
+      />
+
+    </TabFourStack.Navigator>
+  );
+}
 

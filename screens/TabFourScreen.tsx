@@ -4,13 +4,13 @@ import { StyleSheet } from 'react-native';
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 
-export default function TabTwoScreen() {
-  return (
+export default function TabFourScreen() {  
+  return (  
     <View style={styles.container}>
-      <Text style={styles.title}>Tab Two Navigator</Text>
-      <Text style={styles.title}>Tab Two Screen</Text>
+      <Text style={styles.title}>Tab Four Navigator</Text>
+      <Text style={styles.title}>Tab Four Screen</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabTwoScreen.tsx" />
+      <EditScreenInfo path="/screens/TabThreeScreen.tsx" />
     </View>
   );
 }
