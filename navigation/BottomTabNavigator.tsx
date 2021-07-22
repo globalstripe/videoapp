@@ -231,7 +231,7 @@ function TabOneNavigator() {
     />
 
 <HomeStack.Screen
-        name="ListItemScreen"
+        name="ListItemScreen"   // name needs to be defined in types.tsx
         component={ListItemScreen}
         
         options={{
@@ -294,7 +294,7 @@ function TabTwoNavigator() {
   return (
     <TabTwoStack.Navigator>
       <TabTwoStack.Screen
-        name="TabTwoScreen"
+        name="TabTwoScreen1"
         component={TabTwoScreen}
         options={{
           headerTitle: 'Tab Two Header',
@@ -332,7 +332,7 @@ function TabTwoNavigator() {
       />
 
       <TabTwoStack.Screen
-        name="TabTwoScreen"
+        name="ListItemScreen"  
         component={ListItemScreen}
         options={{ headerTitle: 'ListItemScreen' }}
       />

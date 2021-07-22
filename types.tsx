@@ -48,6 +48,7 @@ export type TabTwoParamList = {
   TabTwoScreen1: undefined;
   TabTwoScreen2: undefined;
   SettingsScreen: undefined;
+  ListItemScreen: undefined;
 };
 
 export type TabThreeParamList = {
