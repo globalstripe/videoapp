@@ -5,6 +5,8 @@ import { NativeModules, Image, Pressable, FlatList} from 'react-native';
 import { MaterialIcons, Entypo, AntDesign, Ionicons, Feather, FontAwesome } from '@expo/vector-icons';
 import { Picker } from '@react-native-picker/picker';
 
+import NetInfo from '@react-native-community/netinfo';
+
 import * as Device from 'expo-device';
 //
 // iOS:
@@ -28,6 +30,21 @@ const SettingsScreen = () => {
     // const deviceId = Expo.Constants.deviceId;
 
     const [geoipCountry, setCountryCode] = useState('');
+    const [netType, setNetworkType] = useState('');
+    const [connected, setConnected] = useState('');
+
+    NetInfo.fetch().then(state => {
+      console.log('Connection type', state.type);
+      setNetworkType(state.type)
+      console.log('Is connected?', state.isConnected);
+        if (state.isConnected) {
+          setConnected('True')
+        } else {
+          setConnected('False')
+        }
+    })
+    
+
 
 
     
@@ -69,6 +86,8 @@ let detect = getCountryByIp()
             <Text style={{ backgroundColor: 'black', color: 'white', marginTop: 20, marginLeft: 45 }}>Build ID: {Device.osBuildId}</Text>
             <Text style={{ backgroundColor: 'black', color: 'white', marginTop: 20, marginLeft: 45 }}>MaxMind Location: {geoipCountry.toUpperCase()}</Text>
             <Text style={{ backgroundColor: 'black', color: 'white', marginTop: 20, marginLeft: 45 }}>Device Locale: {locale.toUpperCase()}</Text>
+            <Text style={{ backgroundColor: 'black', color: 'white', marginTop: 20, marginLeft: 45 }}>Network Type: {netType}</Text>
+            <Text style={{ backgroundColor: 'black', color: 'white', marginTop: 20, marginLeft: 45 }}>Connected: {connected}</Text>
             <Text style={{ backgroundColor: 'black', color: 'white', marginTop: 20, marginLeft: 45 }}>Copyright: GlobalStripe 2021</Text>
 
         </View>
