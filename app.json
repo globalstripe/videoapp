@@ -20,17 +20,25 @@
     "ios": {
       "supportsTablet": true
     },
+    "config": {
+      "googleMobileAdsAppId": "ca-app-pub-6964741882714582~9359841559"
+    },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS"
+      ]
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-av"
+      "expo-av",
+      "expo-ads-admob"
     ]
   }
 }

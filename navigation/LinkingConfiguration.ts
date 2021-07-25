@@ -22,6 +22,11 @@ export default {
               TabTwoScreen: 'two',
             },
           },
+          Details: {
+            screens: {
+              MovieDetailsScreen: 'details',
+            },
+          },
         },
       },
       NotFound: '*',

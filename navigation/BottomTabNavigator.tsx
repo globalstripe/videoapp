@@ -26,6 +26,8 @@ import TabTwoScreen2 from '../screens/TabTwoScreen2';
 import TabThreeScreen from '../screens/TabThreeScreen';
 import TabFourScreen from '../screens/TabFourScreen';
 
+
+
 import { BottomTabParamList, HomeParamList, TabOneParamList,TabTwoParamList,TabThreeParamList,TabFourParamList, SettingsParamList } from '../types';
 
 // import { AntDesign, MaterialIcons, Ionicons } from '@expo/vector-icons';
