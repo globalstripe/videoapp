@@ -76,4 +76,3 @@ export type Episode = {
   plot: string,
   video: string,
 }
-

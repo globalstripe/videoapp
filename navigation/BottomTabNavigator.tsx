@@ -419,7 +419,7 @@ function TabThreeNavigator() {
         name="TabThreeScreen"
         component={TabThreeScreen}
         options={{
-          headerTitle: 'Screen Three Header',
+          headerTitle: 'Search',
           headerTintColor: 'white',
           headerLeftContainerStyle: {
             paddingTop: 0,

@@ -2,13 +2,13 @@
   "expo": {
     "name": "OSTVideo",
     "slug": "OSTVideo",
-    "version": "1.0.0",
+    "version": "1.0.5",
     "icon": "./assets/images/clapperboard-50.png",
     "scheme": "ostvideodemo",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/images/ios-splash.png",
-      "resizeMode": "contain",
+      "image": "./assets/images/iphone-preview-gstripe.png",
+      "resizeMode": "cover",
       "backgroundColor": "#000000"
     },
     "updates": {
@@ -18,19 +18,44 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
-    },
-    "config": {
-      "googleMobileAdsAppId": "ca-app-pub-6964741882714582~9359841559"
+      "splash": {
+        "image": "./assets/images/iphone-preview-gstripe.png",
+        "resizeMode": "contain",
+        "backgroundColor": "#000000"
+      },
+      "backgroundColor": "#000000",
+      "supportsTablet": true,
+      "bundleIdentifier": "com.globalstripe.movieadmobapp",
+      "buildNumber": "1.0.5",
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-6964741882714582~9359841559"
+      },
+      "googleServicesFile": "./GoogleService-Info.plist",
+      "infoPlist": {
+        "NSUserTrackingUsageDescription": "This identifier will be used to deliver personalized ads to you.",
+        "SKAdNetworkItems": [
+          {
+            "SKAdNetworkIdentifier": "cstr6suwn9.skadnetwork"
+          }
+        ],
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Allow $(PRODUCT_NAME) to access your location",
+        "NSLocationAlwaysUsageDescription": "Allow $(PRODUCT_NAME) to access your location",
+        "NSLocationWhenInUseUsageDescription": "Allow $(PRODUCT_NAME) to access your location"
+      }
     },
     "android": {
+      "package": "com.globalstripe.movieadmobapp",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
       "permissions": [
         "android.permission.RECORD_AUDIO",
-        "android.permission.MODIFY_AUDIO_SETTINGS"
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.FOREGROUND_SERVICE"
       ]
     },
     "web": {
@@ -38,7 +63,11 @@
     },
     "plugins": [
       "expo-av",
-      "expo-ads-admob"
+      "expo-ads-admob",
+      "expo-tracking-transparency",
+      "expo-location",
+      "expo-splash-screen",
+      "expo-updates"
     ]
   }
 }

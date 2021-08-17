@@ -74,65 +74,7 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 16,
         fontWeight: 'bold'
-    },
-    // Modal
-    centeredView: {
-        flex: 1,
-        justifyContent: "center",  
-        alignItems: "center",
-        marginTop: 22,
-        backgroundColor: '#384240', // This is the modals view background
-      },
-      modalView: {
-        margin: 20,
-        backgroundColor: "#528277",   // This is the modals background
-        borderRadius: 20,
-        padding: 150,
-        width: 380,
-        height: 800,
-        alignItems: "center",
-        shadowColor: "#000",
-        shadowOffset: {
-          width: 0,
-          height: 4,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 4,
-        elevation: 5,
-      },
-      button: {
-        borderRadius: 20,
-        padding: 20,
-        elevation: 2,
-      },
-      buttonOpen: {
-        marginTop: 20,
-        marginLeft: 60,
-        padding: 10,
-        backgroundColor: '#42a1f5',
-        width: 300,
-        marginBottom: 10,
-        // backgroundColor: "#F194FF",
-      },
-      buttonClose: {  // Button on the modal //
-        marginTop: 20,
-        padding: 10,
-        backgroundColor: "#2196F3",
-        width: 300,
-        marginBottom: 10,
-
-      },
-      textStyle: {
-        color: "black",
-        fontWeight: "bold",
-        textAlign: "center",
-      },
-      modalText: {
-        marginBottom: 15,
-        textAlign: "center",
-        width: 360,
-        
-      }
+    }
 })
 
 export default styles;

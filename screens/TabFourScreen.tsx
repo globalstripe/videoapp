@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useEffect } from 'react';
 import { Button, ScrollView, StyleSheet, Platform} from 'react-native';
 
+
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 
@@ -18,9 +19,6 @@ import {
 //   "googleMobileAdsAppId": "ca-app-pub-6964741882714582~9359841559"
 // },
 
-// Interstitial Ad Unit ID
-// ca-app-pub-6964741882714582~9359841559
-// ca-app-pub-6964741882714582/1432938651
 
 // AdMobInterstitial.setAdUnitID("ca-app-pub3940256099942544/1033173712");
 // AdMobInterstitial.addEventListener("interstitialDidLoad", () =>
@@ -43,7 +41,7 @@ import {
 export default function TabFourScreen() {  
   
 // Set global test device ID
-setTestDeviceIDAsync('EMULATOR');
+// setTestDeviceIDAsync('EMULATOR');
 // ALWAYS USE TEST ID for Admob ads
 
 
