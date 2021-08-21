@@ -36,12 +36,20 @@ export type BottomTabParamList = {
   Downloads: undefined;
 };
 
+export type SignupParamList  = {
+  SignupScreen: undefined;
+};
+
+
 export type HomeParamList = {
   HomeScreen: undefined;
   ListItemScreen: undefined;
   SettingsScreen: undefined;
   MovieDetailsScreen: undefined;
   MoreSettings: undefined;
+  SignupScreen: undefined;
+  WebViewTwoScreen: undefined;
+  WebViewThreeScreen: undefined;
 };
 
 export type TabTwoParamList = {

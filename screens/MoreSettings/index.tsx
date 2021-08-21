@@ -26,12 +26,12 @@ import * as SecureStore from "expo-secure-store";
 
 const { InAppUtils } = NativeModules;
 
-const MoreSettings = () => {
-  
+const MoreSettings = ()  => {
+
   const [modalVisible, setModalVisible] = useState(false);
 
-  const [key, SetKey] = React.useState("name");
-  const [value, SetValue] = React.useState("Unknown");
+  const [key, SetKey] = React.useState("country");
+  const [value, SetValue] = React.useState("CN");
 
   const showModal = () => {
     console.log("Modal Pressable Pressed");
@@ -50,21 +50,21 @@ const MoreSettings = () => {
           marginLeft: 45,
         }} > {" "} </Text>
 
-      <Button
-        title="Set name to Alan,"
+      <Button 
+        title="Set country to US"
         onPress={() => {
-          save(key, value);
-          SetKey("name");
-          SetValue("Alan");
+         SetKey("country");
+         SetValue("US");
+         save(key, value);
         }}
       />
 
       <Button
-        title="Set name to Colin"
+        title="Set country to UK"
         onPress={() => {
+          SetKey("country");
+          SetValue("UK");
           save(key, value);
-          SetKey("name");
-          SetValue("Colin");
         }}
       />
 
@@ -72,15 +72,13 @@ const MoreSettings = () => {
         title="Save this key/value pair"
         onPress={() => {
           save(key, value);
-          SetKey("name");
-          SetValue("Chris");
         }}
       />  
 
       <Button
         title="Get the Saved Value"
         onPress={() => {
-          getValueFor("name");
+          getValueFor("country");
         }}
       />
 

@@ -20,15 +20,24 @@ import MovieDetailsScreen from '../screens/MovieDetailsScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import MoreSettings from '../screens/MoreSettings';
 import ListItemScreen from '../screens/ListItem';
+import SignupScreen from '../screens/SignupScreen';
+import WebViewTwoScreen from '../screens/WebViewTwoScreen';
+import WebViewThreeScreen from '../screens/WebViewThreeScreen';
 
 import TabTwoScreen from '../screens/TabTwoScreen';
 import TabTwoScreen2 from '../screens/TabTwoScreen2';
 import TabThreeScreen from '../screens/TabThreeScreen';
 import TabFourScreen from '../screens/TabFourScreen';
 
-
-
-import { BottomTabParamList, HomeParamList, TabOneParamList,TabTwoParamList,TabThreeParamList,TabFourParamList, SettingsParamList } from '../types';
+import {  BottomTabParamList, 
+          HomeParamList, 
+          TabOneParamList,
+          TabTwoParamList,
+          TabThreeParamList,
+          TabFourParamList, 
+          SettingsParamList,
+          SignupParamList 
+} from '../types';
 
 // import { AntDesign, MaterialIcons, Ionicons } from '@expo/vector-icons';
 
@@ -111,17 +120,17 @@ function TabOneNavigator() {
     },
   };
 
-  const navigation = useNavigation();
+const navigation = useNavigation();
 
-  const onSettingsPress = () => {
+const onSettingsPress = () => {
       navigation.navigate('SettingsScreen')
   }
 
-  const onHamBurgerPress = () => {
+const onHamBurgerPress = () => {
        navigation.navigate('ListItemScreen')
   }
 
-  const onBackPress = () => {
+const onBackPress = () => {
     navigation.navigate('HomeScreen')
 }
 
@@ -129,6 +138,17 @@ const onMorePress = () => {
   navigation.navigate('MoreSettings')
 }
 
+const onSignUpPress = () => {
+  navigation.navigate('SignupScreen')
+}
+
+const onWebViewTwoPress = () => {
+  navigation.navigate('WebViewTwoScreen')
+}
+
+const onWebViewThreePress = () => {
+  navigation.navigate('WebViewThreeScreen')
+}
 
   return (
     <HomeStack.Navigator>
@@ -267,6 +287,15 @@ const onMorePress = () => {
             />
           ),
 
+          headerRight: () => (
+            <Ionicons
+              name="ios-arrow-forward"
+              size={30}
+              color="grey"
+              onPress={() => onSignUpPress()}
+            />
+          ),
+
           headerStyle: {
             backgroundColor: 'black',
             height: 75,
@@ -276,6 +305,155 @@ const onMorePress = () => {
           },
         }}
     />
+
+<HomeStack.Screen
+        name="SignupScreen"
+        component={SignupScreen}
+        
+        options={{
+          headerTitle: 'Signup',
+          headerTintColor: 'white',
+          headerLeftContainerStyle: {
+            paddingTop: 0,
+            paddingBottom: 2,
+            paddingLeft: 21,
+            paddingRight: 0,
+          },
+          headerRightContainerStyle: {
+            paddingTop: 0,
+            paddingBottom: 2,
+            paddingLeft: 1,
+            paddingRight: 26,
+          },
+
+          headerLeft: () => (
+            <Ionicons
+              name="ios-arrow-back"
+              size={30}
+              color="grey"
+              onPress={() => onMorePress()}
+            />
+          ),
+
+          headerRight: () => (
+            <Ionicons
+              name="ios-arrow-forward"
+              size={30}
+              color="grey"
+              onPress={() => onWebViewTwoPress()}
+            />
+          ),
+
+          headerStyle: {
+            backgroundColor: 'black',
+            height: 75,
+            elevation: 0, // remove shadow on Android
+            shadowOpacity: 0, // remove shadow on iOS
+            borderBottomWidth: 0 // Just in case.
+          },
+
+        }}
+    />
+
+<HomeStack.Screen
+        name="WebViewTwoScreen"
+        component={WebViewTwoScreen}
+        
+        options={{
+          headerTitle: 'Webview Two External',
+          headerTintColor: 'white',
+          headerLeftContainerStyle: {
+            paddingTop: 0,
+            paddingBottom: 2,
+            paddingLeft: 21,
+            paddingRight: 0,
+          },
+          headerRightContainerStyle: {
+            paddingTop: 0,
+            paddingBottom: 2,
+            paddingLeft: 1,
+            paddingRight: 26,
+          },
+
+          headerLeft: () => (
+            <Ionicons
+              name="ios-arrow-back"
+              size={30}
+              color="grey"
+              onPress={() => onSignUpPress()}
+            />
+          ),
+
+          headerRight: () => (
+            <Ionicons
+              name="ios-arrow-forward"
+              size={30}
+              color="grey"
+              onPress={() => onWebViewThreePress()}
+            />
+          ),
+
+          headerStyle: {
+            backgroundColor: 'black',
+            height: 75,
+            elevation: 0, // remove shadow on Android
+            shadowOpacity: 0, // remove shadow on iOS
+            borderBottomWidth: 0 // Just in case.
+          },
+
+        }}
+    />
+
+<HomeStack.Screen
+        name="WebViewThreeScreen"  // If this error/warns make sure it is exported in HomeParamList in types.tsx
+        component={WebViewThreeScreen}
+        
+        options={{
+          headerTitle: 'Webview Three',
+          headerTintColor: 'white',
+          headerLeftContainerStyle: {
+            paddingTop: 0,
+            paddingBottom: 2,
+            paddingLeft: 21,
+            paddingRight: 0,
+          },
+          headerRightContainerStyle: {
+            paddingTop: 0,
+            paddingBottom: 2,
+            paddingLeft: 1,
+            paddingRight: 26,
+          },
+
+          headerLeft: () => (
+            <Ionicons
+              name="ios-arrow-back"
+              size={30}
+              color="grey"
+              onPress={() => onWebViewTwoPress()}
+            />
+          ),
+
+          headerRight: () => (
+            <Ionicons
+              name="ios-arrow-forward"
+              size={30}
+              color="grey"
+              onPress={() => onSettingsPress()}
+            />
+          ),
+
+          headerStyle: {
+            backgroundColor: 'black',
+            height: 75,
+            elevation: 0, // remove shadow on Android
+            shadowOpacity: 0, // remove shadow on iOS
+            borderBottomWidth: 0 // Just in case.
+          },
+
+        }}
+    />
+
+
 
 <HomeStack.Screen
         name="ListItemScreen"   // name needs to be defined in types.tsx

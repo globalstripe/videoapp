@@ -5,6 +5,7 @@ import {
   FlatList,
   NativeSyntheticEvent,
   TextInputChangeEventData,
+  TouchableOpacity,
 } from "react-native";
 import { SearchBar } from "react-native-elements";
 
@@ -43,8 +44,14 @@ export default function TabThreeScreen() {
   const updateQuery = (input: string): void => {
     setHeroes(data.slice());
     setQuery(input);
-  };
+  };  
 
+  const handlePress = (item) => {  
+    // See the entire object
+    // alert("Pressed: " + JSON.stringify(movie) )
+    alert("Item: " + item.id + " " + formatNames(item) )
+   // navigation.navigate('Detail', item);
+ }
  
   useEffect(() => {
     fetchData();
@@ -57,18 +64,21 @@ export default function TabThreeScreen() {
     //   <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
 
     <View style={styles.container}>
-      <Text style={styles.heading}>Search Hero</Text>
+      <Text style={styles.heading}>Movie Search</Text>
       <SearchBar
         onChangeText={updateQuery}
         value={query}
-        placeholder="Type Here..."
+        placeholder="Type Here..."  
       />
       <FlatList
         data={heroes}
         keyExtractor={(i) => i.id.toString()}
         extraData={query}
         renderItem={({ item }) => (
+
+          <TouchableOpacity onPress={() => { handlePress(item)} }>
           <Text style={styles.flatList}>{filterNames(item)}</Text>
+          </TouchableOpacity>
         )}
       />
     </View>
@@ -77,13 +87,17 @@ export default function TabThreeScreen() {
 
 const styles = StyleSheet.create({
   container: {
-      marginBottom: 45
+      marginBottom: 45,
+      backgroundColor: 'black',
+      color: 'white' 
   },
   heading:{
       marginTop: 50,
       marginBottom:10,
       marginLeft: 15,
-      fontSize: 25
+      fontSize: 25,
+      backgroundColor: 'black',
+      color: 'white' 
   },
   flatList:{
       paddingLeft: 15, 
@@ -91,6 +105,9 @@ const styles = StyleSheet.create({
       paddingBottom:15,
       fontSize: 20,
       borderBottomColor: '#26a69a',
-      borderBottomWidth:1
+      borderBottomWidth:1,
+      backgroundColor: 'black',
+      color: 'white'  
+
   }
 });
